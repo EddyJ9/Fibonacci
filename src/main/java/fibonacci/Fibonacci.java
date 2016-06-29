@@ -1,9 +1,20 @@
 package fibonacci;
 
+import java.util.Scanner;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * Created by jeff on 6/28/16.
  */
-public class Fibonacci {
+public class Fibonacci implements Runnable {
+    private int fibNumber;
+
+    public Fibonacci(int number) {
+        this.fibNumber = fibNumber;
+    }
 
     /**
      * Recursive fibonacci algorithm.  Majorly inefficient
@@ -25,4 +36,13 @@ public class Fibonacci {
 
         return rval;
     }
+
+    @Override
+    public void run() {
+        long number = fib(fibNumber);
+        System.out.format("%d is the %d number in the sequence\n", fibNumber, number);
+
+    }
+
 }
+
