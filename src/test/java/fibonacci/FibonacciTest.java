@@ -9,12 +9,13 @@ import static org.junit.Assert.assertEquals;
  * Created by jeff on 6/28/16.
  */
 public class FibonacciTest {
-    private Fibonacci fib;
+    Fibonacci fib;
 
     @Before
     public void setup(){
-        Fibonacci fib = new Fibonacci(0);
+        fib = new Fibonacci(0);
     }
+
     @Test
     public void whenFibZeroThenReturnZero(){
         assertEquals(0, fib.fib(0));

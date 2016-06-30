@@ -1,19 +1,15 @@
 package fibonacci;
 
-import java.util.Scanner;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * Created by jeff on 6/28/16.
  */
 public class Fibonacci implements Runnable {
-    private int fibNumber;
+    private int number;
+    private long fibNumber;
 
-    public Fibonacci(int number) {
-        this.fibNumber = fibNumber;
+    public Fibonacci(int numberDesired) {
+        this.number = numberDesired;
     }
 
     /**
@@ -33,14 +29,15 @@ public class Fibonacci implements Runnable {
         else{
             rval = fib(number - 1) + fib(number - 2);
         }
-
+        fibNumber = rval;
         return rval;
     }
 
     @Override
     public void run() {
-        long number = fib(fibNumber);
-        System.out.format("%d is the %d number in the sequence\n", fibNumber, number);
+
+        fib(number);
+        System.out.format("%d is the %dth number in the sequence\n", this.fibNumber, number);
 
     }
 

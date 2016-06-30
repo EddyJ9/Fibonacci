@@ -14,13 +14,13 @@ public class Main {
         ExecutorService service = Executors.newFixedThreadPool(100);
         BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(1000);
 
-        //create both threads for ReadFile and ReadQueue
+        //create producer thread and run it
         Thread producer = new Thread(new ReadFile(queue));
-        Thread consumer = new Thread(new ReadQueue(queue, service));
-        //start boths threads to go to work
         producer.start();
+        //create consumer thread and run it as well
+        Thread consumer = new Thread(new ReadQueue(queue, service));
         consumer.start();
 
     }
-    
+
 }
